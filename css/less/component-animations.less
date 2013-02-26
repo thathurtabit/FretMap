@@ -1,0 +1,146 @@
+//
+// Component animations
+// --------------------------------------------------
+
+
+.fade {
+  opacity: 0;
+  .transition(opacity .15s linear);
+  &.in {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  .transition(height .35s ease);
+  &.in {
+    height: auto;
+  }
+}
+
+
+// if browser supports css transitions
+html.csstransitions {
+  
+  // -- ELEMENTS BEFORE PAGE FULLY LOADED
+  // elements before the outer is loaded
+  .guitar-outer, .navbar, #current-root-scale {
+    .opacity(0);
+  }
+  #current-root-scale {
+    top: 100px;
+  }
+
+  // -- ELEMENTS AFTER FULL LOAD
+  // when the elements are loaded, then...
+  body.go {
+    .transition-delay(0.3s);
+    .guitar-outer, .navbar, #current-root-scale {
+      .opacity(100);
+      .transition-delay(0.3s);
+      .transition(all 0.6s ease-out);
+    }
+    #current-root-scale {
+      top: 110px;
+    }
+    #loader {
+      .animateLoaderOut; // MIXINS
+    }
+    
+  }
+
+  // FIX THE GAP BETWEEN NAV COLLAPSE AND DESKTOP GUITAR FLIP
+  @media (min-width: @navbarCollapseWidth) and (max-width: @screenWidthForGuitarFlip) {
+    // -- ELEMENTS BEFORE PAGE FULLY LOADED
+    // elements before the outer is loaded
+    #current-root-scale {
+      top: 19%;
+    }
+    .guitar-outer {
+      margin-top: 60px;
+    }
+    // -- ELEMENTS AFTER FULL LOAD
+    // when the elements are loaded, then...
+    body.go {
+      #current-root-scale {
+        top: 22%;
+      }
+    }
+  }
+
+  // FIX THE GAP BETWEEN NAV COLLAPSE AND DESKTOP GUITAR FLIP - plus portrait
+  @media (min-width: @navbarCollapseWidth) and (max-width: @screenWidthForGuitarFlip) and (orientation:portrait) {
+    #current-root-scale {
+        top: 100px;
+      }
+      // -- ELEMENTS AFTER FULL LOAD
+      // when the elements are loaded, then...
+      body.go {        
+        #current-root-scale {
+          top: 110px;
+        }        
+      }
+  }
+
+  // FIX THE GAP BETWEEN NAV COLLAPSE AND DESKTOP GUITAR FLIP - plus landscape
+  @media (min-width: @navbarCollapseWidth) and (max-width: @screenWidthForGuitarFlip) and (orientation:landscape) {
+    #current-root-scale {
+        position: fixed;
+      }
+  }
+
+  // IF LANDSCAPE MOBILE PHONE, THEN MOVE THE CURRENT ROOT BOX
+  @media (max-width: @navbarCollapseWidth) and (orientation:landscape) {
+    #current-root-scale {
+      top: 25px;
+      position: absolute;
+    }
+    // -- ELEMENTS AFTER FULL LOAD
+    // when the elements are loaded, then...
+    body.go {        
+      #current-root-scale {
+        top: 30px;
+        z-index: 1031;
+      }
+    }
+  }
+
+  // LARGER SCREENS, SWITCH HORIZONTAL
+  @media (min-width: @screenWidthForGuitarFlip) {
+
+    // -- ELEMENTS BEFORE PAGE FULLY LOADED
+    // elements before the outer is loaded
+    .guitar-outer {
+      .translate(4000px, 0);
+      margin-top: 0; // override default
+      top: 0; // override default
+      .opacity(0);
+    }
+    #current-root-scale {
+      top: 19%;
+    }
+
+    // -- ELEMENTS AFTER FULL LOAD
+    // when the elements are loaded, then...
+    body.go {
+      .guitar-outer {
+        margin-left: 0;
+        margin-top: 0; // override default
+        .opacity(100);
+        .translate(0, 0);
+        .transition-delay(0.3s);
+        .transition(all 0.6s ease-out);
+      }
+      #current-root-scale {
+        top: 22%;
+        .transition-delay(0.3s);
+        .transition(all 0.6s ease-out);
+      }
+
+    }
+
+  }
+}

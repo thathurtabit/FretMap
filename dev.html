@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fretmap - Learn your guitar scales and notation with this handy responsive guitar fretboard reference.</title>
+        <meta name="description" content="Fretmap - Learn guitar scales and notation with this free interactive fretboard. Grab a scale and get playin' It's free and stuff.">
+        <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="http://fretmap.com/img/og.jpg" />
+        <meta property="og:description" content="Fretmap - Learn guitar scales and notation with this free interactive fretboard. Grab a scale and get playin' It's free and stuff." />
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <!-- Load fonts -->
+        <script type="text/javascript" src="//use.typekit.net/cmv8ilh.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <!-- MODAL - ABOUT -->
+        <div id="modalAbout" class="modal hide fade">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>About <span>FretMap</span></h3>
+          </div>
+          <div class="modal-body">
+            <p>Fretmap is a free web application helping you master your guitar scales and shred with the best of 'em.<p>
+            <p>The app provides an interactive fretboard allowing you to pick your root note, your scale, and whether you're a righty or a lefty.</p>
+            <p>It's also responsive, meaning you can take Fretmap with you anywhere from your desktop to... where ever you can take your smartphone or tablet.</p>
+            <hr />
+            <p>To report a bug or to make a suggestion, please send a tweet to <a href="http://www.twitter.com/thathurtabit" target="_blank">@thathurtabit</a><p>
+            <p>Happy riffing!<br />
+                <a href="http://ghosthorses.co.uk" target="_blank">Stephen Fairbanks</a>
+            </p>
+
+          </div>          
+        </div>
+        <!-- / MODAL - ABOUT -->
+
+        <div id="wrap">
+
+          <!-- STICKY HEADER -->
+          <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+              <div class="row-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="brand">Fretmap.com - Learn your guitar scales</div>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">                    
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose Root <b class="caret"></b></a>
+                      <ul class="dropdown-menu select-root minor-blues">
+                        <li class="show-root-e active"><a href="#">e</a></li>
+                        <li class="show-root-f "><a href="#">f</a></li>
+                        <li class="show-root-fs"><a href="#">f<i>#</i></a></li>
+                        <li class="show-root-g"><a href="#">g</a></li>
+                        <li class="show-root-gs"><a href="#">g<i>#</i></a></li>
+                        <li class="show-root-a"><a href="#">a</a></li>
+                        <li class="show-root-bf"><a href="#">b<i>b</i></a></li>
+                        <li class="show-root-b"><a href="#">b</a></li>
+                        <li class="show-root-c"><a href="#">c</a></li>
+                        <li class="show-root-cs"><a href="#">c<i>#</i></a></li>
+                        <li class="show-root-d"><a href="#">d</a></li>
+                        <li class="show-root-ds"><a href="#">d<i>#</i></a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose Scale <b class="caret"></b></a>
+                      <ul class="dropdown-menu select-scale e">
+                        <li class="scale-minor-blues active"><a href="#">Minor Blues</a></li>
+                        <li class="scale-pentatonic-minor"><a href="#">Pentatonic Minor</a></li>
+                        <li class="scale-major"><a href="#">Major</a></li>
+                        <li class="scale-chromatic"><a href="#">Chromatic</a></li>
+                        <li class="divider"></li>
+                        <li class="more-soon">More soon!</li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Switch hand <b class="caret"></b></a>
+                      <ul class="dropdown-menu select-hand">
+                        <li class="right-hand active"><a href="#">Right hand</a></li>
+                        <li class="left-hand"><a href="#">Left hand</a></li>
+                      </ul>
+                    </li>
+                    <li class="pull-right"><a href="#modalAbout" role="button" data-toggle="modal">About</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
+          <!-- / STICKY HEADER -->
+
+          <div id="current-root-scale">
+            <span class="viewing">Viewing:</span>
+            <span class="scale">Minor Blues</span>
+            <span class="in">scale in</span>
+            <span class="root">E</span>            
+          </div>
+
+          <!-- CONTENT -->
+          <div class="guitar-outer">
+            <!-- HEAD -->
+            <div class="guitar-head">
+            </div>
+            <!-- / HEAD -->
+
+            <!-- NECK -->
+            <div class="guitar-neck">
+              <!-- FRETS -->
+                <span class="fret1 fret"></span>
+                <span class="fret2 fret"></span>
+                <span class="fret3 fret"></span>
+                <span class="fret4 fret"></span>
+                <span class="fret5 fret"></span>
+                <span class="fret6 fret"></span>
+                <span class="fret7 fret"></span>
+                <span class="fret8 fret"></span>
+                <span class="fret9 fret"></span>
+                <span class="fret10 fret"></span>
+                <span class="fret11 fret"></span>
+                <span class="fret12 fret"></span>
+                <span class="fret13 fret"></span>
+                <span class="fret14 fret"></span>
+                <span class="fret15 fret"></span>
+                <span class="fret16 fret"></span>
+                <span class="fret17 fret"></span>
+                <span class="fret18 fret"></span>
+                <span class="fret19 fret"></span>
+                <span class="fret20 fret"></span>
+                <span class="fret21 fret"></span>
+                <span class="fret22 fret"></span>
+              <!-- /FRETS -->
+
+              <!-- /MARKERS  -->
+                <span class="marker1 marker"><i></i></span>
+                <span class="marker2 marker"><i></i></span>
+                <span class="marker3 marker"><i></i></span>
+                <span class="marker4 marker"><i></i></span>
+                <span class="marker5 marker"><i></i></span>
+                <span class="marker5b marker"><i></i></span>
+                <span class="marker6 marker"><i></i></span>
+                <span class="marker7 marker"><i></i></span>
+                <span class="marker8 marker"><i></i></span>
+                <span class="marker9 marker"><i></i></span>
+              <!-- /MARKERS -->
+
+              <!-- STRINGS -->
+                <!-- HIGH E -->
+                <span class="string-highe string">
+                    <!-- NOTES -->
+                    <span class="note note-e pos0 root">e</span>
+                    <span class="note note-f pos1">f</span>
+                    <span class="note note-fs pos2">f<i>#</i></span>
+                    <span class="note note-g pos3">g</span>
+                    <span class="note note-gs pos4">g<i>#</i></span>
+                    <span class="note note-a pos5">a</span>
+                    <span class="note note-bf pos6">b<i>b</i></span>
+                    <span class="note note-b pos7">b</span>
+                    <span class="note note-c pos8">c</span>
+                    <span class="note note-cs pos9">c<i>#</i></span>
+                    <span class="note note-d pos10">d</span>
+                    <span class="note note-ds pos11">d<i>#</i></span>
+                    <span class="note note-e pos12">e</span>
+                    <span class="note note-f pos13">f</span>
+                    <span class="note note-fs pos14">f<i>#</i></span>
+                    <span class="note note-g pos15">g</span>
+                    <span class="note note-gs pos16">g<i>#</i></span>
+                    <span class="note note-a pos17">a</span>
+                    <span class="note note-bf pos18">b<i>b</i></span>
+                    <span class="note note-b pos19">b</span>
+                    <span class="note note-c pos20">c</span>
+                    <span class="note note-cs pos21">c<i>#</i></span>
+                    <span class="note note-d pos22">d</span>
+                  <!-- NOTES -->
+                </span>
+                <!-- /HIGH E -->
+                <!-- B -->
+                <span class="string-b string">
+                    <!-- NOTES -->
+                    <span class="note note-b pos0">b</span>
+                    <span class="note note-c pos1">c</span>
+                    <span class="note note-cs pos2">c<i>#</i></span>
+                    <span class="note note-d pos3">d</span>
+                    <span class="note note-ds pos4">d<i>#</i></span>
+                    <span class="note note-e pos5">e</span>
+                    <span class="note note-f pos6">f</span>
+                    <span class="note note-fs pos7">f<i>#</i></span>
+                    <span class="note note-g pos8">g</span>
+                    <span class="note note-gs pos9">g<i>#</i></span>
+                    <span class="note note-a pos10">a</span>
+                    <span class="note note-bf pos11">b<i>b</i></span>
+                    <span class="note note-b pos12">b</span>
+                    <span class="note note-c pos13">c</span>
+                    <span class="note note-cs pos14">c<i>#</i></span>
+                    <span class="note note-d pos15">d</span>
+                    <span class="note note-ds pos16">d<i>#</i></span>
+                    <span class="note note-e pos17">e</span>
+                    <span class="note note-f pos18">f</span>
+                    <span class="note note-fs pos19">f<i>#</i></span>
+                    <span class="note note-g pos20">g</span>
+                    <span class="note note-gs pos21">g<i>#</i></span>
+                    <span class="note note-a pos22">a</span>
+                    <!-- / NOTES -->
+                </span>
+                <!-- /B -->
+                <!-- G -->
+                <span class="string-g string">
+                    <!-- NOTES -->
+                    <span class="note note-g pos0">g</span>
+                    <span class="note note-gs pos1">g<i>#</i></span>
+                    <span class="note note-a pos2">a</span>
+                    <span class="note note-bf pos3">b<i>b</i></span>
+                    <span class="note note-b pos4">b</span>
+                    <span class="note note-c pos5">c</span>
+                    <span class="note note-cs pos6">c<i>#</i></span>
+                    <span class="note note-d pos7">d</span>
+                    <span class="note note-ds pos8">d<i>#</i></span>
+                    <span class="note note-e pos9">e</span>
+                    <span class="note note-f pos10">f</span>
+                    <span class="note note-fs pos11">f<i>#</i></span>
+                    <span class="note note-g pos12">g</span>
+                    <span class="note note-gs pos13">g<i>#</i></span>
+                    <span class="note note-a pos14">a</span>
+                    <span class="note note-bf pos15">b<i>b</i></span>
+                    <span class="note note-b pos16">b</span>
+                    <span class="note note-c pos17">c</span>
+                    <span class="note note-cs pos18">c<i>#</i></span>
+                    <span class="note note-d pos19">d</span>
+                    <span class="note note-ds pos20">d<i>#</i></span>
+                    <span class="note note-e pos21">e</span>
+                    <span class="note note-f pos22">f</span>
+                    <!-- / NOTES -->
+                </span>
+                <!-- /G -->
+                <!-- D -->
+                <span class="string-d string">
+                    <!-- NOTES -->
+                    <span class="note note-d pos0">d</span>
+                    <span class="note note-ds pos1">d<i>#</i></span>
+                    <span class="note note-e pos2">e</span>
+                    <span class="note note-f pos3">f</span>
+                    <span class="note note-fs pos4">f<i>#</i></span>
+                    <span class="note note-g pos5">g</span>
+                    <span class="note note-gs pos6">g<i>#</i></span>
+                    <span class="note note-a pos7">a</span>
+                    <span class="note note-bf pos8">b<i>b</i></span>
+                    <span class="note note-b pos9">b</span>
+                    <span class="note note-c pos10">c</span>
+                    <span class="note note-cs pos11">c<i>#</i></span>
+                    <span class="note note-d pos12">d</span>
+                    <span class="note note-ds pos13">d<i>#</i></span>
+                    <span class="note note-e pos14">e</span>
+                    <span class="note note-f pos15">f</span>
+                    <span class="note note-fs pos16">f<i>#</i></span>
+                    <span class="note note-g pos17">g</span>
+                    <span class="note note-gs pos18">g<i>#</i></span>
+                    <span class="note note-a pos19">a</span>
+                    <span class="note note-bf pos20">b<i>b</i></span>
+                    <span class="note note-b pos21">b</span>
+                    <span class="note note-c pos22">c</span>
+                    <!-- / NOTES -->
+                </span>
+                <!-- / D -->
+                <!-- A -->
+                <span class="string-a string">
+                    <!-- NOTES -->
+                    <span class="note note-a pos0">a</span>
+                    <span class="note note-bf pos1">b<i>b</i></span>
+                    <span class="note note-b pos2">b</span>
+                    <span class="note note-c pos3">c</span>
+                    <span class="note note-cs pos4">c<i>#</i></span>
+                    <span class="note note-d pos5">d</span>
+                    <span class="note note-ds pos6">d<i>#</i></span>
+                    <span class="note note-e pos7">e</span>
+                    <span class="note note-f pos8">f</span>
+                    <span class="note note-fs pos9">f<i>#</i></span>
+                    <span class="note note-g pos10">g</span>
+                    <span class="note note-gs pos11">g<i>#</i></span>
+                    <span class="note note-a pos12">a</span>
+                    <span class="note note-bf pos13">b<i>b</i></span>
+                    <span class="note note-b pos14">b</span>
+                    <span class="note note-c pos15">c</span>
+                    <span class="note note-cs pos16">c<i>#</i></span>
+                    <span class="note note-d pos17">d</span>
+                    <span class="note note-ds pos18">d<i>#</i></span>
+                    <span class="note note-e pos19">e</span>
+                    <span class="note note-f pos20">f</span>
+                    <span class="note note-fs pos21">f<i>#</i></span>
+                    <span class="note note-g pos22">g</span>
+                    <!-- / NOTES -->
+                </span>
+                <!-- /A -->
+                <!-- LOW E -->
+                <span class="string-lowe string">
+                  <!-- NOTES -->
+                    <span class="note note-e pos0 root">e</span>
+                    <span class="note note-f pos1">f</span>
+                    <span class="note note-fs pos2">f<i>#</i></span>
+                    <span class="note note-g pos3">g</span>
+                    <span class="note note-gs pos4">g<i>#</i></span>
+                    <span class="note note-a pos5">a</span>
+                    <span class="note note-bf pos6">b<i>b</i></span>
+                    <span class="note note-b pos7">b</span>
+                    <span class="note note-c pos8">c</span>
+                    <span class="note note-cs pos9">c<i>#</i></span>
+                    <span class="note note-d pos10">d</span>
+                    <span class="note note-ds pos11">d<i>#</i></span>
+                    <span class="note note-e pos12">e</span>
+                    <span class="note note-f pos13">f</span>
+                    <span class="note note-fs pos14">f<i>#</i></span>
+                    <span class="note note-g pos15">g</span>
+                    <span class="note note-gs pos16">g<i>#</i></span>
+                    <span class="note note-a pos17">a</span>
+                    <span class="note note-bf pos18">b<i>b</i></span>
+                    <span class="note note-b pos19">b</span>
+                    <span class="note note-c pos20">c</span>
+                    <span class="note note-cs pos21">c<i>#</i></span>
+                    <span class="note note-d pos22">d</span>
+                  <!-- NOTES -->
+                </span>
+                <!-- /LOW E -->
+              <!-- / STRINGS -->
+            </div>
+            <!-- / NECK -->
+
+            <!-- GUITAR BODY -->
+            <div class="guitar-body">
+
+            </div>
+            <!-- / GUITAR BODY -->
+
+          </div>
+          <!-- / CONTENT -->
+
+        </div>
+        <!-- / STICKY HEADER -->
+
+
+        <!-- STICKY FOOTER NAV -->
+          <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="navbar-inner">
+              <div class="row-fluid">
+                <div class="span6 share">
+                  <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style ">
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f6ef9af5c304522"></script>
+<!-- AddThis Button END -->
+                </div>
+                <div class="span6 pull-right made-by">
+                  Made by <a href="http://ghosthorses.co.uk" target="_blank">Ghosthorses.co.uk</a>
+                </div>                  
+              </div>
+            </div>
+          </div>
+          <!-- / STICKY FOOTER NAV -->
+
+          <!-- LOADER -->
+          <div id="loader">
+            Loading...
+          </div>
+          <!-- / LOADER -->
+
+        
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-38410543-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

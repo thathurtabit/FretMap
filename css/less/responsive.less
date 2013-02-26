@@ -1,0 +1,248 @@
+/*!
+ * Bootstrap Responsive v2.3.0
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+
+// Responsive.less
+// For phone and tablet devices
+// -------------------------------------------------------------
+
+
+// REPEAT VARIABLES & MIXINS
+// -------------------------
+// Required since we compile the responsive stuff separately
+
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+
+// RESPONSIVE CLASSES
+// ------------------
+
+@import "responsive-utilities.less";
+
+
+// MEDIA QUERIES
+// ------------------
+
+// Large desktops
+@import "responsive-1200px-min.less";
+
+// Make Guitar horiztonal
+@import "responsive-800px-min.less";
+
+// Tablets to regular desktops
+@import "responsive-768px-979px.less";
+
+// Phones to portrait tablets and narrow desktops
+@import "responsive-767px-max.less";
+
+
+// RESPONSIVE NAVBAR
+// ------------------
+
+// From 979px and below, show a button to toggle navbar contents
+@import "responsive-navbar.less";
+
+
+// SPECIAL 
+
+// ----------------------
+// SWITCH TO DESKTOP HORIZONTAL
+@media (min-width: @screenWidthForGuitarFlip) {
+  // ALL THE STYLES FOR GUITAR HORIZONTAL
+  .GUITARHORIZONTAL; // MIXINS
+
+  // ALL THE STYLES FOR GUITAR HORIZONTAL (LEFTY)
+  body.lefty {
+	.GUITARHORIZONTAL-LEFTY; // MIXINS
+  }
+
+  #current-root-scale {
+    position: fixed;
+  }
+
+}
+
+
+// ----------------------
+// Portrait
+@media (max-width: @screenWidthForGuitarFlip) and (orientation:portrait) {
+	// 
+  // ALL THE STYLES FOR GUITAR VERT
+  .GUITARVERTICAL; // MIXINS
+
+  // ALL THE STYLES FOR GUITAR VERT (LEFTY)
+  body.lefty {
+    .GUITARVERTICAL-LEFTY; // MIXINS
+  }
+}
+
+// ----------------------
+// Landscape
+@media (max-width: @screenWidthForGuitarFlip) and (orientation:landscape) {
+    /* Landscape styles */
+   
+   // ALL THE STYLES FOR GUITAR HORIZONTAL
+  .GUITARHORIZONTAL; // MIXINS
+
+  // Overide desktop styles
+  .guitar-head {
+    width: 130px;
+    background: url(../img/hori-head-mobile.png) no-repeat left center;
+  }
+  .guitar-outer {
+    width: @neckLength + 130px;
+    .clearfix();
+  }
+  .guitar-neck {
+  	left: 130px;
+  }
+  //.navbar-fixed-bottom {
+   // position: relative;
+   // margin-top: 200px;
+  //}
+
+  // ALL THE STYLES FOR GUITAR HORIZONTAL (LEFTY)
+  body.lefty {
+    .GUITARHORIZONTAL-LEFTY; // MIXINS
+
+    // Overide desktop styles
+    .guitar-head {
+      width: 130px;
+      background: url(../img/hori-head-mobile-lefty.png) no-repeat right center;
+    }
+    .guitar-outer {
+      width: @neckLength + 130px;
+   	  .clearfix();
+  	}
+    .guitar-neck {
+  		right: 130px;
+  		left: 0;
+  	}
+  }
+}
+
+
+// ----------------------
+// Landscape
+@media (max-width: @screenWidthForGuitarFlip) and (orientation:landscape) {
+    /* Landscape styles */
+   
+   // ALL THE STYLES FOR GUITAR HORIZONTAL
+  .GUITARHORIZONTAL; // MIXINS
+
+  // Overide desktop styles
+  .guitar-head {
+    width: 130px;
+    background: url(../img/hori-head-mobile.png) no-repeat left center;
+  }
+  .guitar-outer {
+    width: @neckLength + 130px;
+    .clearfix();
+  }
+  .guitar-neck {
+  	left: 130px;
+  }
+  
+
+  // ALL THE STYLES FOR GUITAR HORIZONTAL (LEFTY)
+  body.lefty {
+    .GUITARHORIZONTAL-LEFTY; // MIXINS
+
+    // Overide desktop styles
+    .guitar-head {
+      width: 130px;
+      background: url(../img/hori-head-mobile-lefty.png) no-repeat right center;
+    }
+    .guitar-outer {
+      width: @neckLength + 130px;
+   	  .clearfix();
+  	}
+    .guitar-neck {
+  		right: 130px;
+  		left: 0;
+  	}
+  }
+}
+
+
+// STRETCH NAV LENGTH FOR LANDSCAPE MOBILE
+  @media (max-width: @navbarCollapseWidth) and (orientation:landscape) {
+    .navbar {
+      width: @outerLengthMobile;
+      .navbar-inner {
+        padding-left: 10px;
+      }
+      ul.nav {
+        margin-left: 10px;
+      }
+      .row-fluid {
+        width: 500px;
+      }      
+    }
+  }
+
+
+// CENTER FOOTER FOR MOBILE
+  @media (max-width: @navbarCollapseWidth) {
+  .navbar {
+    .navbar-inner {
+      padding-left: 3px;
+    }
+    ul.nav {
+      margin-left: 2px;
+    }
+  }
+
+  .navbar.navbar-fixed-bottom {
+      .share, .made-by {
+        padding: 0;
+        text-align: center;
+        float: none;
+        height: 20px;
+        line-height: 20px;
+      }
+      .fb-like, .addthis_toolbox {
+        float: none;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .share {
+        display: block;
+        width: 120px;
+        margin: 0 auto;
+      }
+      .made-by {
+        margin-top: 23px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+// ----------------------
+// Landscape for Phones
+@media (max-width: @screenWidthForLandscapeMobile) and (orientation:landscape) {
+	.navbar-fixed-top {
+    	position: relative;
+    	margin-bottom: 30px;
+  	}
+	.navbar-fixed-bottom {
+    	position: relative;
+    	margin-top: 250px;
+  	}
+}
+
+
+// QUICK FIX FOR HUGE MONITORS
+// Make sure guitar doesn't stop as scroll right
+@media (min-width: @outerLength) and (orientation:landscape) {
+	.guitar-outer {
+    	left: 1000px;
+  	}
+}

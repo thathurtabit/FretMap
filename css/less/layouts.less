@@ -1,0 +1,182 @@
+//
+// Layouts
+// --------------------------------------------------
+
+
+// Container (centered, fixed-width layouts)
+.container {
+  .container-fixed();
+}
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-right: @gridGutterWidth;
+  padding-left: @gridGutterWidth;
+  .clearfix();
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+// LEAVE ROOM FOR STICKY FOOTER AT THE BOTTOM
+#push, #footer {
+	height: 60px;
+}
+
+
+.navbar-fixed-bottom {
+	.share, .made-by {
+		.box-sizing(border-box);
+	}
+	.share {
+		padding-left: 30px;
+		height: 68px;
+		line-height: 68px;
+		.addthis_toolbox {
+			margin-top: 27px;
+			width: 135px;
+			float: left;
+		}
+		.fb-like {
+			float: left;
+		}
+	}
+	.made-by {
+		text-align: right;
+		padding-right: 30px;
+		height: 68px;
+		line-height: 68px;
+	}
+}
+
+.more-soon {
+	color: #ccc;
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+
+#loader {
+	width: 61px;
+	height: 45px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -30px;
+	background: url(../img/loading.png) no-repeat;
+	.hide-text;
+	.animateLoaderIn; // MIXINS
+}
+
+
+#current-root-scale {
+	position: absolute;
+	width: 260px;
+	height: 30px;
+	left: 50%;
+	top: 22%;
+	margin-top: -15px;
+	margin-left: -130px;
+	.border-radius(3px);
+	border: 2px solid @grayDark;
+	background: @grayDarker;
+	text-align: center;
+	z-index: 3;
+	.box-shadow(0 2px 2px rgba(0,0,0,0.2));
+	// ARROW
+	&:after, &:before {
+		top: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+	&:after {
+		border-color: rgba(34, 34, 34, 0);
+		border-top-color: @grayDarker;
+		border-width: 5px;
+		left: 50%;
+		margin-left: -5px;
+	}
+	&:before {
+		border-color: rgba(51, 51, 51, 0);
+		border-top-color: @grayDark;
+		border-width: 8px;
+		left: 50%;
+		margin-left: -8px;
+	}
+	.clearfix();
+	// SPAN
+	span {
+		height: 30px;
+		line-height: 30px;
+		display: inline-block;
+		padding-left: 3px;
+	}
+	// Viewing
+	.viewing {
+		font-size: @baseFontSize -2;
+		color: @gray;
+		padding-left: 0;
+	}
+	.in {
+		font-size: @baseFontSize -2;
+		color: @gray;
+	}
+	.root {
+		font-size: @baseFontSize -2;
+		font-weight: 500;
+		color: @yellow;
+	}
+	.scale {
+		font-size: @baseFontSize -2;
+		font-weight: 500;
+		color: @yellow;
+	}
+
+}
+
+
+
+// ALL THE STYLES FOR GUITAR VERT
+.GUITARVERTICAL; // MIXINS
+
+// ALL THE STYLES FOR GUITAR VERT (LEFTY)
+body.lefty {
+	.GUITARVERTICAL-LEFTY; // MIXINS
+}
+
+
+// HOLDING PAGE STYLES
+body.holding {
+	background: @grayDark;
+	div.holding {
+		position: absolute;
+		width: 500px;
+		height: 237px;
+		top: 50%;
+		margin-top: -117px;
+		left: 50%;
+		margin-left: -250px;
+		background: url(../img/logo-holding.png) no-repeat;
+		position: relative;
+		h1 {
+			.hide-text; 
+		}
+		h2 {
+			font-size: @baseFontSize + 6;
+			font-family: @headingsFontFamily;
+			color: @yellow;
+			position: absolute;
+			bottom: 30px;
+			right: 30px;
+			text-align: right;
+		}
+	}
+}

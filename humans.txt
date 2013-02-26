@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Stephen Fairbanks -- Designer / Developer -- http://twitter.com/thathurtabit
+
+# THANKS
+
+    Twitter Bootstrap / HTML5 Boilerplate
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
